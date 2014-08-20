@@ -23,4 +23,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rdoc"
   s.add_development_dependency "bundler"
   s.add_development_dependency "rake"
+  s.add_development_dependency "faraday"
+  s.add_development_dependency "faraday_middleware", ">= 0.8.0"
 end
