@@ -18,7 +18,8 @@ Gem::Specification.new do |s|
     "lib/unloq/api_error.rb",
     "lib/unloq/entity.rb",
     "lib/unloq/entities/author.rb",
-    "lib/unloq/entities/recipient.rb"
+    "lib/unloq/entities/recipient.rb",
+    "lib/unloq/events.rb"
   ]
   s.files += Dir['spec/']
   s.homepage = "http://github.com/mattmueller/unloq"

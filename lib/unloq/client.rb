@@ -1,6 +1,8 @@
 module Unloq
   class Client
 
+    include Events
+
     attr_reader :api_key, :namespace
 
     # Initialize the client class that will be used for all Unloq interactions.
@@ -33,6 +35,16 @@ module Unloq
       format_response_or_raise_error(response)
     end
 
+
+    # Validate that any author used is of the appropriate type
+    def validate_author author
+      raise ArgumentError.new("Author must be an Unloq::Author or Unloq::Recipient") unless author.is_a?(Unloq::Entity)
+    end
+
+    #Validate that any recipient used is of the appropriate type
+    def validate_recipient recipient
+      raise ArgumentError.new("Recipient must be an Unloq::Author or Unloq::Recipient") unless recipient.is_a?(Unloq::Entity)
+    end
 
     private
 

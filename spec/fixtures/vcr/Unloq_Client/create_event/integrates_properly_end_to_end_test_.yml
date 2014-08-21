@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.unloq.co/events
+    body:
+      encoding: UTF-8
+      string: '{"author_id":12,"author_type":"User","recipient_id":17,"recipient_type":"OtherThing","verb":"acted_on","meta":{"foo":"bar"},"api_key":"{api_key}","namespace":"{namespace}"}'
+    headers:
+      User-Agent:
+      - Unloq ruby gem 0.0.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx/1.4.6 (Ubuntu)
+      Date:
+      - Thu, 21 Aug 2014 18:59:23 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 21 Aug 2014 18:59:23 GMT
+recorded_with: VCR 2.9.2
