@@ -32,21 +32,35 @@ describe Unloq::Client, '#post', vcr: true do
   let(:api_key)   { TestCredentials.api_key }
   let(:namespace) { TestCredentials.namespace }
 
-  context "all is well" do
-    let(:endpoint) { '/events' }
-    let(:body) { 
-      {
-        author_type: 'User',
-        author_id: 1,
-        verb: 'login',
-        recipient_type: 'User',
-        recipient_id: 1,
-        meta: nil
-      }
+  let(:endpoint) { '/events' }
+  let(:body) { 
+    {
+      author_type: 'User',
+      author_id: 1,
+      verb: 'login',
+      recipient_type: 'User',
+      recipient_id: 1,
+      meta: nil
     }
+  }
+
+  context "all is well" do
 
     it "should make a successful post request" do
-      expect(subject.status).to eq(201)
+      expect {
+        subject
+      }.to_not raise_error
+    end
+  end
+
+  context "an invalid API Key" do
+    let(:api_key) { "#{TestCredentials.api_key}-but-not" }
+    let(:namespace) { TestCredentials.namespace }
+
+    it "should raise an error with as much information as possible" do
+      expect {
+        subject
+      }.to raise_error(Unloq::APIError, /status_code:500/)
     end
   end
 end

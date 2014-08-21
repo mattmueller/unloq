@@ -14,7 +14,8 @@ Gem::Specification.new do |s|
     "README.md",
     "lib/unloq.rb",
     "lib/unloq/version.rb",
-    "lib/unloq/client.rb"
+    "lib/unloq/client.rb",
+    "lib/unloq/api_error.rb"
   ]
   s.files += Dir['spec/']
   s.homepage = "http://github.com/mattmueller/unloq"

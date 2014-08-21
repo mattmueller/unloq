@@ -17,17 +17,34 @@ module Unloq
       @namespace = namespace
     end
 
+    # Make a post request to the Unloq API
+    #
+    # @param [String] endpoint The resource endpoint, e.g. /events
+    # @param [Hash] body The body payload that should be POSTed
+
     def post endpoint, body = {}
       body.merge!(api_key: api_key, namespace: namespace)
 
-      connection.post do |req|
+      response = connection.post do |req|
         req.url endpoint
         req.body = body.to_json
       end
+
+      format_response_or_raise_error(response)
     end
 
 
     private
+
+    # Return either the response body or raise a helpful error
+
+    def format_response_or_raise_error response
+      if response.status / 100 == 2
+        response.body
+      else
+        raise Unloq::APIError.new(response.status, response.body)
+      end
+    end
 
     # Set up basics of all HTTP connections for Unloq api requests
 
