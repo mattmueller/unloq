@@ -17,6 +17,27 @@ module Unloq
       @namespace = namespace
     end
 
+    def post endpoint, body = {}
+      body.merge!(api_key: api_key, namespace: namespace)
+
+      connection.post do |req|
+        req.url endpoint
+        req.body = body.to_json
+      end
+    end
+
+
+    private
+
+    # Set up basics of all HTTP connections for Unloq api requests
+
+    def connection
+      @connection ||= Faraday.new 'http://api.unloq.co' do |conn|
+        conn.request :json
+        conn.adapter Faraday.default_adapter
+        conn.response :json, :content_type => /\bjson$/
+      end
+    end
 
   end
 end

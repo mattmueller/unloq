@@ -7,6 +7,9 @@ VCR.configure do |c|
   c.hook_into :webmock
 
   c.cassette_library_dir = File.join('spec', 'fixtures', 'vcr')
+  c.filter_sensitive_data('{api_key}')     { TestCredentials.api_key }
+  c.filter_sensitive_data('{namespace}') { TestCredentials.namespace }
+
 end
 
 module VcrHelper
@@ -18,7 +21,6 @@ module VcrHelper
   def default_cassette_name_for_example(example)
     example.
       full_description.
-      underscore.
       sub(/\s/, '/').
       sub('#', '/').
       gsub(/[^\w\/]+/, "_")
