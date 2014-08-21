@@ -4,5 +4,8 @@ require 'faraday_middleware'
 
 #Unloq Classes
 require 'unloq/version'
-require 'unloq/client'
 require 'unloq/api_error'
+require 'unloq/client'
+require 'unloq/entity'
+require 'unloq/entities/author'
+require 'unloq/entities/recipient'
