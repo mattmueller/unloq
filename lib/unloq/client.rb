@@ -49,11 +49,19 @@ module Unloq
     # Set up basics of all HTTP connections for Unloq api requests
 
     def connection
-      @connection ||= Faraday.new 'http://api.unloq.co' do |conn|
+      @connection ||= Faraday.new(url: 'http://api.unloq.co', headers: default_headers) do |conn|
         conn.request :json
         conn.adapter Faraday.default_adapter
         conn.response :json, :content_type => /\bjson$/
       end
+    end
+
+    # Set default headers for all requests
+
+    def default_headers
+      {
+        user_agent: "Unloq ruby gem #{Unloq::VERSION}"
+      }
     end
 
   end
