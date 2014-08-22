@@ -27,13 +27,13 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.summary = "Ruby gem for interacting with the Unloq API."
 
-  s.add_runtime_dependency "faraday", ">= 0.8.0"
-  s.add_runtime_dependency "faraday_middleware", ">= 0.8.0"
+  s.add_runtime_dependency 'faraday', '~> 0.8'
+  s.add_runtime_dependency 'faraday_middleware', '~> 0.8'
 
   s.add_development_dependency "rspec", "~> 3.0"
-  s.add_development_dependency "rdoc", ">= 4.0.0"
-  s.add_development_dependency "bundler", ">= 1.5.0"
-  s.add_development_dependency "rake", "~> 10.3.2"
-  s.add_development_dependency "vcr", "~> 2.9.2"
-  s.add_development_dependency "webmock", "~> 1.18.0"
+  s.add_development_dependency 'rdoc', '~> 4.0'
+  s.add_development_dependency 'bundler', '~> 1.5'
+  s.add_development_dependency 'rake', '~> 10.3'
+  s.add_development_dependency 'vcr', '~> 2.9'
+  s.add_development_dependency 'webmock', '~> 1.18'
 end
