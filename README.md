@@ -19,17 +19,21 @@ Or add it to your Gemfile
 
 This can be used for all requests within the scope of a given `api_key` and `namespace` - it should not need to be instantiated each time you make an API call.
 
-    client = Unloq::Client.new(api_key: 'your-api-key', namespace: 'foo-dev')
+```ruby
+client = Unloq::Client.new(api_key: 'your-api-key', namespace: 'foo-dev')
+```
 
 
 ### Events
 
 Create an event:
 
-    author    = Unloq::Author.new(id: 12, type: 'User')
-    recipient = Unloq::Recipient.new(id: 13, type: 'User')
+```ruby
+author    = Unloq::Author.new(id: 12, type: 'User')
+recipient = Unloq::Recipient.new(id: 13, type: 'User')
 
-    client.create_event(author, 'followed', recipient)
+client.create_event(author, 'followed', recipient)
+```
 
 
 ## Documentation
