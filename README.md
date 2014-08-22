@@ -24,8 +24,6 @@ This can be used for all requests within the scope of a given `api_key` and `nam
 
 ### Events
 
-#### EXAMPLES:
-
 Create an event:
 
     author    = Unloq::Author.new(id: 12, type: 'User')
