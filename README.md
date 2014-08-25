@@ -41,7 +41,7 @@ Lookup an event:
 author    = Unloq::Author.new(id: 12, type: 'User')
 recipient = Unloq::Recipient.new(id: 13, type: 'User')
 
-# Note: this method will raise an Unloq::APIError with 
+# Note: this method will raise an Unloq::APIError::NotFoundError with 
 # a status of 404 if the event is not found
 
 client.lookup_event(author, 'followed', recipient)

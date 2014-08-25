@@ -76,7 +76,7 @@ describe Unloq::Client, '#lookup_event', vcr: true do
     it "should raise a 404 API error" do
       expect {
         subject
-      }.to raise_error(Unloq::APIError, /status_code:404/)
+      }.to raise_error(Unloq::APIError::NotFoundError, /status_code:404/)
     end
   end
 end

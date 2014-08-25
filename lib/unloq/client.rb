@@ -83,6 +83,8 @@ module Unloq
     def format_response_or_raise_error response
       if response.status / 100 == 2
         response.body
+      elsif response.status == 404
+        raise Unloq::APIError::NotFoundError.new(response.status, response.body)
       else
         raise Unloq::APIError.new(response.status, response.body)
       end

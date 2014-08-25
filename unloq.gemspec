@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
     "lib/unloq/version.rb",
     "lib/unloq/client.rb",
     "lib/unloq/api_error.rb",
+    "lib/unloq/api_error/not_found_error.rb",
     "lib/unloq/entity.rb",
     "lib/unloq/entities/author.rb",
     "lib/unloq/entities/recipient.rb",
