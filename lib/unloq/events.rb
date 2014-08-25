@@ -24,5 +24,18 @@ module Unloq
       post('/events', body_to_post)
     end
 
+    # Lookup an event via the Unloq API
+    #
+    # @param author [Unloq::Entity] Author of the event you want to look up
+    # @param verb [String] Verb of the event you want to look up
+    # @param recipient [Unloq::Entity] Recipient of the event you want to look up
+
+    def lookup_event author, verb, recipient
+      validate_author(author)
+      validate_recipient(recipient)
+
+      get('/events', "/#{author.type}/#{author.id}/#{verb}/#{recipient.type}/#{recipient.id}")
+    end
+
   end
 end
