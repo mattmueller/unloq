@@ -16,11 +16,14 @@ Gem::Specification.new do |s|
     "lib/unloq/version.rb",
     "lib/unloq/client.rb",
     "lib/unloq/api_error.rb",
+    "lib/unloq/api_error/not_found_error.rb",
     "lib/unloq/entity.rb",
     "lib/unloq/entities/author.rb",
     "lib/unloq/entities/recipient.rb",
     "lib/unloq/events.rb",
-    "lib/unloq/achievements.rb"
+    "lib/unloq/achievements.rb",
+    "lib/unloq/scoreboards.rb",
+    "lib/unloq/ratings.rb"
   ]
   s.files += Dir['spec/']
   s.homepage = "http://github.com/mattmueller/unloq"

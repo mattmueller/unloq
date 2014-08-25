@@ -3,6 +3,8 @@ module Unloq
 
     include Events
     include Achievements
+    include Scoreboards
+    include Ratings
 
     attr_reader :api_key, :namespace
 
@@ -31,6 +33,20 @@ module Unloq
       response = connection.post do |req|
         req.url endpoint
         req.body = body.to_json
+      end
+
+      format_response_or_raise_error(response)
+    end
+
+    # Make a get request to the Unloq API
+    #
+    # @param base_endpoint [String] The base resource endpoint, e.g. /events
+    # @param resource_scope [String] The scope of the resource endpoint, e.g. /User/1/login/User/1
+
+    def get base_endpoint, resource_scope = nil
+
+      response = connection.get do |req|
+        req.url "#{base_endpoint}/#{api_key}/#{namespace}#{resource_scope}"
       end
 
       format_response_or_raise_error(response)
@@ -67,6 +83,8 @@ module Unloq
     def format_response_or_raise_error response
       if response.status / 100 == 2
         response.body
+      elsif response.status == 404
+        raise Unloq::APIError::NotFoundError.new(response.status, response.body)
       else
         raise Unloq::APIError.new(response.status, response.body)
       end
