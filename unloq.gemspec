@@ -19,7 +19,8 @@ Gem::Specification.new do |s|
     "lib/unloq/entity.rb",
     "lib/unloq/entities/author.rb",
     "lib/unloq/entities/recipient.rb",
-    "lib/unloq/events.rb"
+    "lib/unloq/events.rb",
+    "lib/unloq/achievements.rb"
   ]
   s.files += Dir['spec/']
   s.homepage = "http://github.com/mattmueller/unloq"

@@ -2,6 +2,7 @@ module Unloq
   class Client
 
     include Events
+    include Achievements
 
     attr_reader :api_key, :namespace
 
@@ -44,6 +45,19 @@ module Unloq
     #Validate that any recipient used is of the appropriate type
     def validate_recipient recipient
       raise ArgumentError.new("Recipient must be an Unloq::Author or Unloq::Recipient") unless recipient.is_a?(Unloq::Entity)
+    end
+
+    #Extract entity type and ID from inclusion of either an Unloq::Entity or a *_type argument
+    def extract_entity_details entity = nil, entity_type = nil
+      if entity
+        validate_author(entity)
+        return [entity.type, entity.id]
+      else
+        unless entity_type
+          raise ArgumentError.new("Must include an author/recipient as an Unloq::Entity instance or include an author_type or recipient_type")
+        end
+        return [entity_type, nil]
+      end
     end
 
     private
