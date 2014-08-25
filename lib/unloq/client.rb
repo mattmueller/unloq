@@ -3,6 +3,7 @@ module Unloq
 
     include Events
     include Achievements
+    include Scoreboards
 
     attr_reader :api_key, :namespace
 
@@ -41,7 +42,7 @@ module Unloq
     # @param base_endpoint [String] The base resource endpoint, e.g. /events
     # @param resource_scope [String] The scope of the resource endpoint, e.g. /User/1/login/User/1
 
-    def get base_endpoint, resource_scope
+    def get base_endpoint, resource_scope = nil
 
       response = connection.get do |req|
         req.url "#{base_endpoint}/#{api_key}/#{namespace}#{resource_scope}"

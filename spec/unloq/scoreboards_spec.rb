@@ -1,0 +1,15 @@
+require 'spec_helper'
+
+describe Unloq::Client, '#scoreboards', vcr: true do
+  let(:instance) { Unloq::Client.new(api_key: TestCredentials.api_key, namespace: TestCredentials.namespace) }
+  subject { instance.scoreboards }
+
+  it "integrates properly (end to end test)" do
+    first_result = subject.first
+    expect(first_result).to eq({
+      "player_id" => '12',
+      "rank" => 1,
+      "points" => '10.00'
+    })
+  end
+end
