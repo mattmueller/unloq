@@ -8,8 +8,8 @@ module Unloq
 
     # Initialize the client class that will be used for all Unloq interactions.
     #
-    # @param [String] api_key Your Unloq api key.
-    # @param [String] namespace The namespace under which Unloq events should be created, e.g. appname-dev
+    # @param api_key [String] Your Unloq api key.
+    # @param namespace [String] The namespace under which Unloq events should be created, e.g. appname-dev
 
     def initialize api_key: nil, namespace: nil
       unless api_key && namespace
@@ -22,8 +22,8 @@ module Unloq
 
     # Make a post request to the Unloq API
     #
-    # @param [String] endpoint The resource endpoint, e.g. /events
-    # @param [Hash] body The body payload that should be POSTed
+    # @param endpoint [String] The resource endpoint, e.g. /events
+    # @param body [Hash] The body payload that should be POSTed
 
     def post endpoint, body = {}
       body.merge!(api_key: api_key, namespace: namespace)

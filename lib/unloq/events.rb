@@ -3,10 +3,10 @@ module Unloq
 
     # Create an event via the Unloq API
     #
-    # @param [Unloq::Entity] author Author involved in the event
-    # @param [String] verb The verb of the event
-    # @param [Unloq::Entity] recipient Recipient involved in the event
-    # @param [Hash] meta A hash of additional metadata to send with the request
+    # @param author [Unloq::Entity] Author involved in the event
+    # @param verb [String] The verb of the event
+    # @param recipient [Unloq::Entity] Recipient involved in the event
+    # @param meta [Hash] A hash of additional metadata to send with the request
 
     def create_event author, verb, recipient, meta = {}
       validate_author(author)

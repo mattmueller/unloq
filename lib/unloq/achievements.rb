@@ -3,8 +3,8 @@ module Unloq
 
     # Create an achievement via the Unloq API
     #
-    # @param verb [String] verb The verb for which this achievement should be unlocked
-    # @param observation_count [Integer] observation_count The number of times the event must occur to unlock this achievement
+    # @param verb [String] The verb for which this achievement should be unlocked
+    # @param observation_count [Integer] The number of times the event must occur to unlock this achievement
     # @param author [Unloq::Entity] An individual author, if passed this achievement will only be attainable by this author. Required if author_type is not defined.
     # @param recipient [Unloq::Entity] An individual recipient that must be acted on to attain this achievement. Required if recipient_type is not defined.
     # @param author_type [String] An individual author type, if passed this achievement will only be attaintable by authors of this type. Required if author is not defined.
