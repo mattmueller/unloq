@@ -4,6 +4,7 @@ module Unloq
     include Events
     include Achievements
     include Scoreboards
+    include Ratings
 
     attr_reader :api_key, :namespace
 
